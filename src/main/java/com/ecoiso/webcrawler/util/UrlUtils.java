@@ -1,7 +1,7 @@
 package com.ecoiso.webcrawler.util;
 
 import java.net.URI;
-import java.net.URISyntaxException;
+import java.net.URL;
 
 public class UrlUtils {
 
@@ -9,7 +9,7 @@ public class UrlUtils {
 
     public static boolean isValidUrl(String url) {
         try {
-            new URI(url);
+            new URL(url);
             return true;
         } catch (Exception e) {
             return false;

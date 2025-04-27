@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     public static final int CONNECTION_TIMEOUT = 5000;
     public static final int READ_TIMEOUT = 5000;
     public static final int NUMBER_OF_THREADS = 100;
@@ -42,23 +44,20 @@ public class Main {
     }
 
     private static String getUserInput() {
-        Scanner scanner = new Scanner(System.in);
         String userInput;
 
         while (true) {
             System.out.print("Enter a URL to crawl: ");
-            userInput = scanner.nextLine();
+            userInput = scanner.nextLine().trim();
 
-            try {
-                UrlUtils.isValidUrl(userInput);
+            if (UrlUtils.isValidUrl(userInput)) {
                 System.out.println("Valid URL: " + userInput);
                 break;
-            } catch (IllegalArgumentException e) {
+            } else {
                 System.err.println("Invalid URL. Please try again. Sample url => http://example.com");
             }
         }
 
-        scanner.close();
         return userInput;
     }
 }
