@@ -17,11 +17,11 @@ public class ExecutionLogger {
     }
 
     public void logInfo(final String message) {
-        System.out.println("Log: " + message);
+        System.out.println(message);
     }
 
     public void logError(final String message) {
-        System.out.println("Error: " + message);
+        System.err.println(message);
     }
 
 }
